@@ -1,15 +1,16 @@
 package charprop
 
-version = 0.1.0
+version = 0.2.0
 authors = "gemmaro"
 license = "MIT"
-brief   = "Character properties defined by Unicode standard"
+brief   = "Character properties defined by the Unicode and XML standard"
 readme  = "README.md"
 
 langversion >= 0.5.1
 
 modules = Data.Char.Properties.UnicodeBlocks
         , Data.Char.Properties.UnicodeCharProps
+        , Data.Char.Properties.XMLCharProps
 
 sourcedir = "src"
 postclean = "make clean"

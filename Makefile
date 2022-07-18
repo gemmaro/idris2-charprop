@@ -3,8 +3,14 @@ unicode_data_txt = UnicodeData.txt
 properties_dir = src/Data/Char/Properties
 unicode_blocks_idr = $(properties_dir)/UnicodeBlocks.idr
 unicode_char_props_idr = $(properties_dir)/UnicodeCharProps.idr
+xml_char_props_idr = $(properties_dir)/XMLCharProps.idr
+xml_html = xml.html
+xml_rb = xml.rb
+unicode_blocks_rb = unicode_blocks.rb
+unicode_char_props_rb = unicode_char_props.rb
+sources = $(unicode_blocks_idr) $(unicode_char_props_idr) $(xml_char_props_idr)
 
-all: $(unicode_blocks_idr) $(unicode_char_props_idr)
+all: $(sources) typecheck
 
 renew:
 	$(MAKE) clean all
@@ -12,11 +18,17 @@ renew:
 clean:
 	rm $(blocks_txt) $(unicode_data_txt)
 
-$(unicode_blocks_idr): $(blocks_txt) $(properties_dir)
-	ruby unicode_blocks.rb < $< > $@
+typecheck: $(sources)
+	idris2 --typecheck charprop.ipkg
 
-$(unicode_char_props_idr): $(unicode_data_txt) $(properties_dir)
-	ruby unicode_char_props.rb < $< > $@
+$(unicode_blocks_idr): $(blocks_txt) $(properties_dir) $(unicode_blocks_rb)
+	ruby $(unicode_blocks_rb) < $< > $@
+
+$(unicode_char_props_idr): $(unicode_data_txt) $(properties_dir) $(unicode_char_props_rb)
+	ruby $(unicode_char_props_rb) < $< > $@
+
+$(xml_char_props_idr): $(xml_html) $(properties_dir) $(xml_rb)
+	ruby $(xml_rb) < $< > $@
 
 $(properties_dir):
 	mkdir -p $@
@@ -26,3 +38,6 @@ $(blocks_txt):
 
 $(unicode_data_txt):
 	curl http://www.unicode.org/Public/UNIDATA/UnicodeData.txt > $@
+
+$(xml_html):
+	curl https://www.w3.org/TR/2008/REC-xml-20081126/ > $@
