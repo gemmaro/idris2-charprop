@@ -5,20 +5,24 @@ Property = Struct.new(:char, :category, :code, keyword_init: true) do
     code, _, category, = line.split(';')
     char = "'\\x#{code}'"
     code = code.to_i(16)
-    [new(char: char, category: category, code: code),
-     new(char: char, category: category[0], code: code)]
+    [new(char:, category:, code:),
+     new(char:, category: category[0], code:)]
   end
 end
 
 CharRange = Struct.new(:begin_, :end_, :end_code, keyword_init: true) do
   def render
-    "c >= #{begin_} && c <= #{end_}"
+    if begin_ == end_
+      "c == #{begin_}"
+    else
+      "c >= #{begin_} && c <= #{end_}"
+    end
   end
 end
 
 def ranges(properties)
   result = []
-  properties.sort_by { _1.code }.each do |property|
+  properties.sort_by(&:code).each do |property|
     if result.last && result.last.end_code + 1 == property.code
       result.last.end_ = property.char
       result.last.end_code = property.code
@@ -34,7 +38,7 @@ def render(category, ranges)
     export
     isUnicode#{category} : Char -> Bool
     isUnicode#{category} c =
-      #{ranges.map { _1.render }.join(" ||\n  ")}
+      #{ranges.map(&:render).join(" ||\n  ")}
   END_IDRIS2
 end
 
@@ -46,7 +50,7 @@ END_IDRIS2
 result += $stdin.read
                 .lines
                 .flat_map { |line| line.chomp.then { Property.parse(_1) } }
-                .group_by { _1.category }
+                .group_by(&:category)
                 .transform_values { ranges(_1) }
                 .map { |category, ranges| render(category, ranges) }
                 .join("\n")

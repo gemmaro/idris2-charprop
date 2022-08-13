@@ -7,11 +7,13 @@ end
 ParsedLine = Struct.new(:name, :begin_, :end_, keyword_init: true) do
   def self.parse(line)
     match = line.match(/(.+)\.\.(.+); (.+)/)
-    name = match[3].chars.select { _1.match?(/[A-Za-z0-9]/) }.join
+    name = match[3].chars.grep(/[A-Za-z0-9]/).join
     ParsedLine.new(name: "is#{name}", begin_: match[1], end_: match[2])
   end
 
   def render
+    raise 'begin and end char is same' if begin_ == end_ # TODO
+
     <<~END_IDRIS2
 
       export
