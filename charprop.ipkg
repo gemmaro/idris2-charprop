@@ -11,6 +11,8 @@ langversion >= 0.5.1
 modules = Data.Char.Properties.UnicodeBlocks
         , Data.Char.Properties.UnicodeCharProps
         , Data.Char.Properties.XMLCharProps
+        , Data.Set.CharSet
 
 sourcedir = "src"
 postclean = "make clean"
+depends   = contrib
