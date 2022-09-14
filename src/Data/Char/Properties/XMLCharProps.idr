@@ -1,4 +1,5 @@
 module Data.Char.Properties.XMLCharProps
+export
 isChar : Char -> Bool
 isChar c =
   c == '\x9' ||
@@ -7,6 +8,7 @@ isChar c =
   c >= '\x20' && c <= '\xD7FF' ||
   c >= '\xE000' && c <= '\xFFFD' ||
   c >= '\x10000' && c <= '\x10FFFF'
+export
 isCompatibilityChar : Char -> Bool
 isCompatibilityChar c =
   c >= '\x7F' && c <= '\x84' ||
@@ -28,12 +30,14 @@ isCompatibilityChar c =
   c >= '\xEFFFE' && c <= '\xEFFFF' ||
   c >= '\xFFFFE' && c <= '\xFFFFF' ||
   c >= '\x10FFFE' && c <= '\x10FFFF'
+export
 isWhiteSpace : Char -> Bool
 isWhiteSpace c =
   c == '\x20' ||
   c == '\x9' ||
   c == '\xD' ||
   c == '\xA'
+export
 isNameStartChar : Char -> Bool
 isNameStartChar c =
   c == ':' ||
@@ -52,6 +56,7 @@ isNameStartChar c =
   c >= '\xF900' && c <= '\xFDCF' ||
   c >= '\xFDF0' && c <= '\xFFFD' ||
   c >= '\x10000' && c <= '\xEFFFF'
+export
 isNameChar : Char -> Bool
 isNameChar c = isNameStartChar c ||
   c == '-' ||
@@ -60,6 +65,7 @@ isNameChar c = isNameStartChar c ||
   c == '\xB7' ||
   c >= '\x0300' && c <= '\x036F' ||
   c >= '\x203F' && c <= '\x2040'
+export
 isPubidChar : Char -> Bool
 isPubidChar c =
   c == '\x20' ||

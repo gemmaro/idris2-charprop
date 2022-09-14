@@ -75,6 +75,7 @@ chars = document.xpath('/html/body/div[5]/div[2]/div[2]/table/tbody/tr/td[4]/cod
                 .map { char_range(_1) }.then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isChar : Char -> Bool
   isChar c =
     #{chars}
@@ -87,6 +88,7 @@ compatibility_characters = document.xpath('/html/body/div[5]/div[2]/div[2]/div/d
                                    .then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isCompatibilityChar : Char -> Bool
   isCompatibilityChar c =
     #{compatibility_characters}
@@ -97,6 +99,7 @@ white_spece = document.xpath('/html/body/div[5]/div[2]/div[3]/table[1]/tbody/tr/
                       .map { char_range(_1) }.then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isWhiteSpace : Char -> Bool
   isWhiteSpace c =
     #{white_spece}
@@ -109,6 +112,7 @@ name_start_char = document.xpath('/html/body/div[5]/div[2]/div[3]/table[2]/tbody
                           .then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isNameStartChar : Char -> Bool
   isNameStartChar c =
     #{name_start_char}
@@ -121,6 +125,7 @@ name_char = document.xpath('/html/body/div[5]/div[2]/div[3]/table[2]/tbody[2]/tr
                     .then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isNameChar : Char -> Bool
   isNameChar c = isNameStartChar c ||
     #{name_char}
@@ -134,6 +139,7 @@ pubid_char = document.xpath('/html/body/div[5]/div[2]/div[3]/table[3]/tbody[5]/t
                      .then { join_indented_or(_1) }
 
 source += <<~END_IDRIS2
+  export
   isPubidChar : Char -> Bool
   isPubidChar c =
     #{pubid_char}

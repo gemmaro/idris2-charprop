@@ -18,6 +18,10 @@ CharRange = Struct.new(:begin_, :end_, :end_code, keyword_init: true) do
       "c >= #{begin_} && c <= #{end_}"
     end
   end
+
+  def render_as_charset
+    "MkCharRange #{begin_} #{end_}"
+  end
 end
 
 def ranges(properties)
@@ -39,12 +43,18 @@ def render(category, ranges)
     isUnicode#{category} : Char -> Bool
     isUnicode#{category} c =
       #{ranges.map(&:render).join(" ||\n  ")}
+
+    export
+    unicode#{category} : CharSet
+    unicode#{category} = MkCharSet\n  [ #{ranges.map(&:render_as_charset).join("\n  , ")}\n  ]
   END_IDRIS2
 end
 
 result = <<~END_IDRIS2
   ||| Generated from http://www.unicode.org/Public/UNIDATA/UnicodeData.txt
   module Data.Char.Properties.UnicodeCharProps
+
+  import Data.Set.CharSet
 END_IDRIS2
 
 result += $stdin.read
