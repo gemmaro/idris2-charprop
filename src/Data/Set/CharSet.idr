@@ -8,6 +8,11 @@ record CharRange where
   begin : Char
   end   : Char
 
+namespace CharRange
+  export
+  single : Char -> CharRange
+  single c = MkCharRange c c
+
 ||| hxt-charproperties' `Data.Set.CharSet`
 public export
 record CharSet where
@@ -35,7 +40,7 @@ all = MkCharSet [MkCharRange minBound maxBound]
 ||| hxt-charproperties' `Data.Set.singleCS`
 export
 single : Char -> CharSet
-single c = MkCharSet [MkCharRange c c]
+single c = MkCharSet [single c]
 
 pred : Char -> Char
 pred = chr . (-) 1 . ord
@@ -43,12 +48,12 @@ pred = chr . (-) 1 . ord
 succ : Char -> Char
 succ = chr . (+) 1 . ord
 
-unionHelper : CharRange -> CharSet -> CharSet
-unionHelper r (MkCharSet []) = MkCharSet [r]
-unionHelper r (MkCharSet set@(s :: ss)) = assert_total $
+cons : CharRange -> CharSet -> CharSet
+cons r (MkCharSet []) = MkCharSet [r]
+cons r (MkCharSet set@(s :: ss)) = assert_total $
   if r.end < pred s.begin
      then MkCharSet $ r :: set
-     else unionHelper (MkCharRange r.begin (r.end `max` s.end)) (MkCharSet ss)
+     else cons (MkCharRange r.begin (r.end `max` s.end)) (MkCharSet ss)
 
 ||| hxt-charproperties' `Data.Set.CharSet.unionCS`
 export
@@ -57,9 +62,9 @@ union (MkCharSet [])           s                        = s
 union s                        (MkCharSet [])           = s
 union (MkCharSet (r :: rs)) (MkCharSet (s :: ss)) = assert_total $
   case compare r.begin s.begin of
-       LT => unionHelper (MkCharRange r.begin r.end)               $ union (MkCharSet rs)        (MkCharSet (s :: ss))
-       EQ => unionHelper (MkCharRange r.begin (r.end `max` s.end)) $ union (MkCharSet rs)        (MkCharSet ss)
-       GT => unionHelper (MkCharRange s.begin s.end)               $ union (MkCharSet (r :: rs)) (MkCharSet ss)
+       LT => cons (MkCharRange r.begin r.end)               $ union (MkCharSet rs)        (MkCharSet (s :: ss))
+       EQ => cons (MkCharRange r.begin (r.end `max` s.end)) $ union (MkCharSet rs)        (MkCharSet ss)
+       GT => cons (MkCharRange s.begin s.end)               $ union (MkCharSet (r :: rs)) (MkCharSet ss)
 
 ||| hxt-charproperties' `Data.Set.CharSet.stringCS`
 export
