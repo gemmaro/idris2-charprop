@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+* Update Unicode version to 15 from 14
+
 ## [0.3.0] - 2022-09-15
 
 ### Added
