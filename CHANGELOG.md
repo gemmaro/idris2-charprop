@@ -5,6 +5,7 @@
 ### Changed
 
 * Update Unicode version to 15 from 14
+* Members in `Data.Char.Properties.UnicodeBlocks` are now marked as total
 
 ## [0.3.0] - 2022-09-15
 

@@ -6,7 +6,6 @@ unicode_char_props_idr = $(properties_dir)/UnicodeCharProps.idr
 xml_char_props_idr = $(properties_dir)/XMLCharProps.idr
 xml_html = xml.html
 xml_rb = xml.rb
-unicode_blocks_rb = unicode_blocks.rb
 unicode_char_props_rb = unicode_char_props.rb
 sources = $(unicode_blocks_idr) $(unicode_char_props_idr) $(xml_char_props_idr)
 
@@ -21,8 +20,8 @@ clean:
 typecheck: $(sources)
 	idris2 --typecheck charprop.ipkg
 
-$(unicode_blocks_idr): $(blocks_txt) $(properties_dir) $(unicode_blocks_rb)
-	ruby $(unicode_blocks_rb) < $< > $@
+$(unicode_blocks_idr): $(blocks_txt) $(properties_dir)
+	idris2 -x main src/Data/Char/Properties/Generate.idr --find-ipkg
 
 $(unicode_char_props_idr): $(unicode_data_txt) $(properties_dir) $(unicode_char_props_rb)
 	ruby $(unicode_char_props_rb) < $< > $@

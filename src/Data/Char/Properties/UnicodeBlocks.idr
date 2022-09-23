@@ -3,6 +3,7 @@ module Data.Char.Properties.UnicodeBlocks
 
 import Data.Set.CharSet
 
+%default total
 export
 unicodeVersion : String
 unicodeVersion = "15.0.0"
@@ -2622,3 +2623,4 @@ isSupplementaryPrivateUseAreaB c = c >= '\x100000' && c <= '\x10FFFF'
 export
 supplementaryPrivateUseAreaB : CharSet
 supplementaryPrivateUseAreaB = MkCharSet [MkCharRange '\x100000' '\x10FFFF']
+
