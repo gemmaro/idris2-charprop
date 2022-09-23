@@ -41,7 +41,7 @@ isUnicodeC c =
   c >= '\xFFF9' && c <= '\xFFFB' ||
   c == '\x110BD' ||
   c == '\x110CD' ||
-  c >= '\x13430' && c <= '\x13438' ||
+  c >= '\x13430' && c <= '\x1343F' ||
   c >= '\x1BCA0' && c <= '\x1BCA3' ||
   c >= '\x1D173' && c <= '\x1D17A' ||
   c == '\xE0001' ||
@@ -77,7 +77,7 @@ unicodeC = MkCharSet
   , MkCharRange '\xFFF9' '\xFFFB'
   , MkCharRange '\x110BD' '\x110BD'
   , MkCharRange '\x110CD' '\x110CD'
-  , MkCharRange '\x13430' '\x13438'
+  , MkCharRange '\x13430' '\x1343F'
   , MkCharRange '\x1BCA0' '\x1BCA3'
   , MkCharRange '\x1D173' '\x1D17A'
   , MkCharRange '\xE0001' '\xE0001'
@@ -309,9 +309,11 @@ isUnicodePo c =
   c >= '\x11A3F' && c <= '\x11A46' ||
   c >= '\x11A9A' && c <= '\x11A9C' ||
   c >= '\x11A9E' && c <= '\x11AA2' ||
+  c >= '\x11B00' && c <= '\x11B09' ||
   c >= '\x11C41' && c <= '\x11C45' ||
   c >= '\x11C70' && c <= '\x11C71' ||
   c >= '\x11EF7' && c <= '\x11EF8' ||
+  c >= '\x11F43' && c <= '\x11F4F' ||
   c == '\x11FFF' ||
   c >= '\x12470' && c <= '\x12474' ||
   c >= '\x12FF1' && c <= '\x12FF2' ||
@@ -498,9 +500,11 @@ unicodePo = MkCharSet
   , MkCharRange '\x11A3F' '\x11A46'
   , MkCharRange '\x11A9A' '\x11A9C'
   , MkCharRange '\x11A9E' '\x11AA2'
+  , MkCharRange '\x11B00' '\x11B09'
   , MkCharRange '\x11C41' '\x11C45'
   , MkCharRange '\x11C70' '\x11C71'
   , MkCharRange '\x11EF7' '\x11EF8'
+  , MkCharRange '\x11F43' '\x11F4F'
   , MkCharRange '\x11FFF' '\x11FFF'
   , MkCharRange '\x12470' '\x12474'
   , MkCharRange '\x12FF1' '\x12FF2'
@@ -692,9 +696,11 @@ isUnicodeP c =
   c >= '\x11A3F' && c <= '\x11A46' ||
   c >= '\x11A9A' && c <= '\x11A9C' ||
   c >= '\x11A9E' && c <= '\x11AA2' ||
+  c >= '\x11B00' && c <= '\x11B09' ||
   c >= '\x11C41' && c <= '\x11C45' ||
   c >= '\x11C70' && c <= '\x11C71' ||
   c >= '\x11EF7' && c <= '\x11EF8' ||
+  c >= '\x11F43' && c <= '\x11F4F' ||
   c == '\x11FFF' ||
   c >= '\x12470' && c <= '\x12474' ||
   c >= '\x12FF1' && c <= '\x12FF2' ||
@@ -885,9 +891,11 @@ unicodeP = MkCharSet
   , MkCharRange '\x11A3F' '\x11A46'
   , MkCharRange '\x11A9A' '\x11A9C'
   , MkCharRange '\x11A9E' '\x11AA2'
+  , MkCharRange '\x11B00' '\x11B09'
   , MkCharRange '\x11C41' '\x11C45'
   , MkCharRange '\x11C70' '\x11C71'
   , MkCharRange '\x11EF7' '\x11EF8'
+  , MkCharRange '\x11F43' '\x11F4F'
   , MkCharRange '\x11FFF' '\x11FFF'
   , MkCharRange '\x12470' '\x12474'
   , MkCharRange '\x12FF1' '\x12FF2'
@@ -1165,10 +1173,10 @@ isUnicodeS c =
   c >= '\x1F250' && c <= '\x1F251' ||
   c >= '\x1F260' && c <= '\x1F265' ||
   c >= '\x1F300' && c <= '\x1F6D7' ||
-  c >= '\x1F6DD' && c <= '\x1F6EC' ||
+  c >= '\x1F6DC' && c <= '\x1F6EC' ||
   c >= '\x1F6F0' && c <= '\x1F6FC' ||
-  c >= '\x1F700' && c <= '\x1F773' ||
-  c >= '\x1F780' && c <= '\x1F7D8' ||
+  c >= '\x1F700' && c <= '\x1F776' ||
+  c >= '\x1F77B' && c <= '\x1F7D9' ||
   c >= '\x1F7E0' && c <= '\x1F7EB' ||
   c == '\x1F7F0' ||
   c >= '\x1F800' && c <= '\x1F80B' ||
@@ -1179,15 +1187,13 @@ isUnicodeS c =
   c >= '\x1F8B0' && c <= '\x1F8B1' ||
   c >= '\x1F900' && c <= '\x1FA53' ||
   c >= '\x1FA60' && c <= '\x1FA6D' ||
-  c >= '\x1FA70' && c <= '\x1FA74' ||
-  c >= '\x1FA78' && c <= '\x1FA7C' ||
-  c >= '\x1FA80' && c <= '\x1FA86' ||
-  c >= '\x1FA90' && c <= '\x1FAAC' ||
-  c >= '\x1FAB0' && c <= '\x1FABA' ||
-  c >= '\x1FAC0' && c <= '\x1FAC5' ||
-  c >= '\x1FAD0' && c <= '\x1FAD9' ||
-  c >= '\x1FAE0' && c <= '\x1FAE7' ||
-  c >= '\x1FAF0' && c <= '\x1FAF6' ||
+  c >= '\x1FA70' && c <= '\x1FA7C' ||
+  c >= '\x1FA80' && c <= '\x1FA88' ||
+  c >= '\x1FA90' && c <= '\x1FABD' ||
+  c >= '\x1FABF' && c <= '\x1FAC5' ||
+  c >= '\x1FACE' && c <= '\x1FADB' ||
+  c >= '\x1FAE0' && c <= '\x1FAE8' ||
+  c >= '\x1FAF0' && c <= '\x1FAF8' ||
   c >= '\x1FB00' && c <= '\x1FB92' ||
   c >= '\x1FB94' && c <= '\x1FBCA'
 
@@ -1403,10 +1409,10 @@ unicodeS = MkCharSet
   , MkCharRange '\x1F250' '\x1F251'
   , MkCharRange '\x1F260' '\x1F265'
   , MkCharRange '\x1F300' '\x1F6D7'
-  , MkCharRange '\x1F6DD' '\x1F6EC'
+  , MkCharRange '\x1F6DC' '\x1F6EC'
   , MkCharRange '\x1F6F0' '\x1F6FC'
-  , MkCharRange '\x1F700' '\x1F773'
-  , MkCharRange '\x1F780' '\x1F7D8'
+  , MkCharRange '\x1F700' '\x1F776'
+  , MkCharRange '\x1F77B' '\x1F7D9'
   , MkCharRange '\x1F7E0' '\x1F7EB'
   , MkCharRange '\x1F7F0' '\x1F7F0'
   , MkCharRange '\x1F800' '\x1F80B'
@@ -1417,15 +1423,13 @@ unicodeS = MkCharSet
   , MkCharRange '\x1F8B0' '\x1F8B1'
   , MkCharRange '\x1F900' '\x1FA53'
   , MkCharRange '\x1FA60' '\x1FA6D'
-  , MkCharRange '\x1FA70' '\x1FA74'
-  , MkCharRange '\x1FA78' '\x1FA7C'
-  , MkCharRange '\x1FA80' '\x1FA86'
-  , MkCharRange '\x1FA90' '\x1FAAC'
-  , MkCharRange '\x1FAB0' '\x1FABA'
-  , MkCharRange '\x1FAC0' '\x1FAC5'
-  , MkCharRange '\x1FAD0' '\x1FAD9'
-  , MkCharRange '\x1FAE0' '\x1FAE7'
-  , MkCharRange '\x1FAF0' '\x1FAF6'
+  , MkCharRange '\x1FA70' '\x1FA7C'
+  , MkCharRange '\x1FA80' '\x1FA88'
+  , MkCharRange '\x1FA90' '\x1FABD'
+  , MkCharRange '\x1FABF' '\x1FAC5'
+  , MkCharRange '\x1FACE' '\x1FADB'
+  , MkCharRange '\x1FAE0' '\x1FAE8'
+  , MkCharRange '\x1FAF0' '\x1FAF8'
   , MkCharRange '\x1FB00' '\x1FB92'
   , MkCharRange '\x1FB94' '\x1FBCA'
   ]
@@ -1999,12 +2003,14 @@ isUnicodeNd c =
   c >= '\x11C50' && c <= '\x11C59' ||
   c >= '\x11D50' && c <= '\x11D59' ||
   c >= '\x11DA0' && c <= '\x11DA9' ||
+  c >= '\x11F50' && c <= '\x11F59' ||
   c >= '\x16A60' && c <= '\x16A69' ||
   c >= '\x16AC0' && c <= '\x16AC9' ||
   c >= '\x16B50' && c <= '\x16B59' ||
   c >= '\x1D7CE' && c <= '\x1D7FF' ||
   c >= '\x1E140' && c <= '\x1E149' ||
   c >= '\x1E2F0' && c <= '\x1E2F9' ||
+  c >= '\x1E4F0' && c <= '\x1E4F9' ||
   c >= '\x1E950' && c <= '\x1E959' ||
   c >= '\x1FBF0' && c <= '\x1FBF9'
 
@@ -2065,12 +2071,14 @@ unicodeNd = MkCharSet
   , MkCharRange '\x11C50' '\x11C59'
   , MkCharRange '\x11D50' '\x11D59'
   , MkCharRange '\x11DA0' '\x11DA9'
+  , MkCharRange '\x11F50' '\x11F59'
   , MkCharRange '\x16A60' '\x16A69'
   , MkCharRange '\x16AC0' '\x16AC9'
   , MkCharRange '\x16B50' '\x16B59'
   , MkCharRange '\x1D7CE' '\x1D7FF'
   , MkCharRange '\x1E140' '\x1E149'
   , MkCharRange '\x1E2F0' '\x1E2F9'
+  , MkCharRange '\x1E4F0' '\x1E4F9'
   , MkCharRange '\x1E950' '\x1E959'
   , MkCharRange '\x1FBF0' '\x1FBF9'
   ]
@@ -2191,6 +2199,7 @@ isUnicodeN c =
   c >= '\x11C50' && c <= '\x11C6C' ||
   c >= '\x11D50' && c <= '\x11D59' ||
   c >= '\x11DA0' && c <= '\x11DA9' ||
+  c >= '\x11F50' && c <= '\x11F59' ||
   c >= '\x11FC0' && c <= '\x11FD4' ||
   c >= '\x12400' && c <= '\x1246E' ||
   c >= '\x16A60' && c <= '\x16A69' ||
@@ -2198,11 +2207,13 @@ isUnicodeN c =
   c >= '\x16B50' && c <= '\x16B59' ||
   c >= '\x16B5B' && c <= '\x16B61' ||
   c >= '\x16E80' && c <= '\x16E96' ||
+  c >= '\x1D2C0' && c <= '\x1D2D3' ||
   c >= '\x1D2E0' && c <= '\x1D2F3' ||
   c >= '\x1D360' && c <= '\x1D378' ||
   c >= '\x1D7CE' && c <= '\x1D7FF' ||
   c >= '\x1E140' && c <= '\x1E149' ||
   c >= '\x1E2F0' && c <= '\x1E2F9' ||
+  c >= '\x1E4F0' && c <= '\x1E4F9' ||
   c >= '\x1E8C7' && c <= '\x1E8CF' ||
   c >= '\x1E950' && c <= '\x1E959' ||
   c >= '\x1EC71' && c <= '\x1ECAB' ||
@@ -2329,6 +2340,7 @@ unicodeN = MkCharSet
   , MkCharRange '\x11C50' '\x11C6C'
   , MkCharRange '\x11D50' '\x11D59'
   , MkCharRange '\x11DA0' '\x11DA9'
+  , MkCharRange '\x11F50' '\x11F59'
   , MkCharRange '\x11FC0' '\x11FD4'
   , MkCharRange '\x12400' '\x1246E'
   , MkCharRange '\x16A60' '\x16A69'
@@ -2336,11 +2348,13 @@ unicodeN = MkCharSet
   , MkCharRange '\x16B50' '\x16B59'
   , MkCharRange '\x16B5B' '\x16B61'
   , MkCharRange '\x16E80' '\x16E96'
+  , MkCharRange '\x1D2C0' '\x1D2D3'
   , MkCharRange '\x1D2E0' '\x1D2F3'
   , MkCharRange '\x1D360' '\x1D378'
   , MkCharRange '\x1D7CE' '\x1D7FF'
   , MkCharRange '\x1E140' '\x1E149'
   , MkCharRange '\x1E2F0' '\x1E2F9'
+  , MkCharRange '\x1E4F0' '\x1E4F9'
   , MkCharRange '\x1E8C7' '\x1E8CF'
   , MkCharRange '\x1E950' '\x1E959'
   , MkCharRange '\x1EC71' '\x1ECAB'
@@ -4128,6 +4142,7 @@ isUnicodeL c =
   c == '\x111DC' ||
   c >= '\x11200' && c <= '\x11211' ||
   c >= '\x11213' && c <= '\x1122B' ||
+  c >= '\x1123F' && c <= '\x11240' ||
   c >= '\x11280' && c <= '\x11286' ||
   c == '\x11288' ||
   c >= '\x1128A' && c <= '\x1128D' ||
@@ -4190,11 +4205,15 @@ isUnicodeL c =
   c >= '\x11D6A' && c <= '\x11D89' ||
   c == '\x11D98' ||
   c >= '\x11EE0' && c <= '\x11EF2' ||
+  c == '\x11F02' ||
+  c >= '\x11F04' && c <= '\x11F10' ||
+  c >= '\x11F12' && c <= '\x11F33' ||
   c == '\x11FB0' ||
   c >= '\x12000' && c <= '\x12399' ||
   c >= '\x12480' && c <= '\x12543' ||
   c >= '\x12F90' && c <= '\x12FF0' ||
-  c >= '\x13000' && c <= '\x1342E' ||
+  c >= '\x13000' && c <= '\x1342F' ||
+  c >= '\x13441' && c <= '\x13446' ||
   c >= '\x14400' && c <= '\x14646' ||
   c >= '\x16800' && c <= '\x16A38' ||
   c >= '\x16A40' && c <= '\x16A5E' ||
@@ -4219,7 +4238,9 @@ isUnicodeL c =
   c >= '\x1AFF5' && c <= '\x1AFFB' ||
   c >= '\x1AFFD' && c <= '\x1AFFE' ||
   c >= '\x1B000' && c <= '\x1B122' ||
+  c == '\x1B132' ||
   c >= '\x1B150' && c <= '\x1B152' ||
+  c == '\x1B155' ||
   c >= '\x1B164' && c <= '\x1B167' ||
   c >= '\x1B170' && c <= '\x1B2FB' ||
   c >= '\x1BC00' && c <= '\x1BC6A' ||
@@ -4257,11 +4278,14 @@ isUnicodeL c =
   c >= '\x1D7AA' && c <= '\x1D7C2' ||
   c >= '\x1D7C4' && c <= '\x1D7CB' ||
   c >= '\x1DF00' && c <= '\x1DF1E' ||
+  c >= '\x1DF25' && c <= '\x1DF2A' ||
+  c >= '\x1E030' && c <= '\x1E06D' ||
   c >= '\x1E100' && c <= '\x1E12C' ||
   c >= '\x1E137' && c <= '\x1E13D' ||
   c == '\x1E14E' ||
   c >= '\x1E290' && c <= '\x1E2AD' ||
   c >= '\x1E2C0' && c <= '\x1E2EB' ||
+  c >= '\x1E4D0' && c <= '\x1E4EB' ||
   c >= '\x1E7E0' && c <= '\x1E7E6' ||
   c >= '\x1E7E8' && c <= '\x1E7EB' ||
   c >= '\x1E7ED' && c <= '\x1E7EE' ||
@@ -4305,7 +4329,7 @@ isUnicodeL c =
   c == '\x20000' ||
   c == '\x2A6DF' ||
   c == '\x2A700' ||
-  c == '\x2B738' ||
+  c == '\x2B739' ||
   c == '\x2B740' ||
   c == '\x2B81D' ||
   c == '\x2B820' ||
@@ -4314,7 +4338,9 @@ isUnicodeL c =
   c == '\x2EBE0' ||
   c >= '\x2F800' && c <= '\x2FA1D' ||
   c == '\x30000' ||
-  c == '\x3134A'
+  c == '\x3134A' ||
+  c == '\x31350' ||
+  c == '\x323AF'
 
 export
 unicodeL : CharSet
@@ -4791,6 +4817,7 @@ unicodeL = MkCharSet
   , MkCharRange '\x111DC' '\x111DC'
   , MkCharRange '\x11200' '\x11211'
   , MkCharRange '\x11213' '\x1122B'
+  , MkCharRange '\x1123F' '\x11240'
   , MkCharRange '\x11280' '\x11286'
   , MkCharRange '\x11288' '\x11288'
   , MkCharRange '\x1128A' '\x1128D'
@@ -4853,11 +4880,15 @@ unicodeL = MkCharSet
   , MkCharRange '\x11D6A' '\x11D89'
   , MkCharRange '\x11D98' '\x11D98'
   , MkCharRange '\x11EE0' '\x11EF2'
+  , MkCharRange '\x11F02' '\x11F02'
+  , MkCharRange '\x11F04' '\x11F10'
+  , MkCharRange '\x11F12' '\x11F33'
   , MkCharRange '\x11FB0' '\x11FB0'
   , MkCharRange '\x12000' '\x12399'
   , MkCharRange '\x12480' '\x12543'
   , MkCharRange '\x12F90' '\x12FF0'
-  , MkCharRange '\x13000' '\x1342E'
+  , MkCharRange '\x13000' '\x1342F'
+  , MkCharRange '\x13441' '\x13446'
   , MkCharRange '\x14400' '\x14646'
   , MkCharRange '\x16800' '\x16A38'
   , MkCharRange '\x16A40' '\x16A5E'
@@ -4882,7 +4913,9 @@ unicodeL = MkCharSet
   , MkCharRange '\x1AFF5' '\x1AFFB'
   , MkCharRange '\x1AFFD' '\x1AFFE'
   , MkCharRange '\x1B000' '\x1B122'
+  , MkCharRange '\x1B132' '\x1B132'
   , MkCharRange '\x1B150' '\x1B152'
+  , MkCharRange '\x1B155' '\x1B155'
   , MkCharRange '\x1B164' '\x1B167'
   , MkCharRange '\x1B170' '\x1B2FB'
   , MkCharRange '\x1BC00' '\x1BC6A'
@@ -4920,11 +4953,14 @@ unicodeL = MkCharSet
   , MkCharRange '\x1D7AA' '\x1D7C2'
   , MkCharRange '\x1D7C4' '\x1D7CB'
   , MkCharRange '\x1DF00' '\x1DF1E'
+  , MkCharRange '\x1DF25' '\x1DF2A'
+  , MkCharRange '\x1E030' '\x1E06D'
   , MkCharRange '\x1E100' '\x1E12C'
   , MkCharRange '\x1E137' '\x1E13D'
   , MkCharRange '\x1E14E' '\x1E14E'
   , MkCharRange '\x1E290' '\x1E2AD'
   , MkCharRange '\x1E2C0' '\x1E2EB'
+  , MkCharRange '\x1E4D0' '\x1E4EB'
   , MkCharRange '\x1E7E0' '\x1E7E6'
   , MkCharRange '\x1E7E8' '\x1E7EB'
   , MkCharRange '\x1E7ED' '\x1E7EE'
@@ -4968,7 +5004,7 @@ unicodeL = MkCharSet
   , MkCharRange '\x20000' '\x20000'
   , MkCharRange '\x2A6DF' '\x2A6DF'
   , MkCharRange '\x2A700' '\x2A700'
-  , MkCharRange '\x2B738' '\x2B738'
+  , MkCharRange '\x2B739' '\x2B739'
   , MkCharRange '\x2B740' '\x2B740'
   , MkCharRange '\x2B81D' '\x2B81D'
   , MkCharRange '\x2B820' '\x2B820'
@@ -4978,6 +5014,8 @@ unicodeL = MkCharSet
   , MkCharRange '\x2F800' '\x2FA1D'
   , MkCharRange '\x30000' '\x30000'
   , MkCharRange '\x3134A' '\x3134A'
+  , MkCharRange '\x31350' '\x31350'
+  , MkCharRange '\x323AF' '\x323AF'
   ]
 
 export
@@ -5731,6 +5769,7 @@ isUnicodeLl c =
   c == '\x1D7CB' ||
   c >= '\x1DF00' && c <= '\x1DF09' ||
   c >= '\x1DF0B' && c <= '\x1DF1E' ||
+  c >= '\x1DF25' && c <= '\x1DF2A' ||
   c >= '\x1E922' && c <= '\x1E943'
 
 export
@@ -6392,6 +6431,7 @@ unicodeLl = MkCharSet
   , MkCharRange '\x1D7CB' '\x1D7CB'
   , MkCharRange '\x1DF00' '\x1DF09'
   , MkCharRange '\x1DF0B' '\x1DF1E'
+  , MkCharRange '\x1DF25' '\x1DF2A'
   , MkCharRange '\x1E922' '\x1E943'
   ]
 
@@ -6559,10 +6599,10 @@ isUnicodeSo c =
   c >= '\x1F260' && c <= '\x1F265' ||
   c >= '\x1F300' && c <= '\x1F3FA' ||
   c >= '\x1F400' && c <= '\x1F6D7' ||
-  c >= '\x1F6DD' && c <= '\x1F6EC' ||
+  c >= '\x1F6DC' && c <= '\x1F6EC' ||
   c >= '\x1F6F0' && c <= '\x1F6FC' ||
-  c >= '\x1F700' && c <= '\x1F773' ||
-  c >= '\x1F780' && c <= '\x1F7D8' ||
+  c >= '\x1F700' && c <= '\x1F776' ||
+  c >= '\x1F77B' && c <= '\x1F7D9' ||
   c >= '\x1F7E0' && c <= '\x1F7EB' ||
   c == '\x1F7F0' ||
   c >= '\x1F800' && c <= '\x1F80B' ||
@@ -6573,15 +6613,13 @@ isUnicodeSo c =
   c >= '\x1F8B0' && c <= '\x1F8B1' ||
   c >= '\x1F900' && c <= '\x1FA53' ||
   c >= '\x1FA60' && c <= '\x1FA6D' ||
-  c >= '\x1FA70' && c <= '\x1FA74' ||
-  c >= '\x1FA78' && c <= '\x1FA7C' ||
-  c >= '\x1FA80' && c <= '\x1FA86' ||
-  c >= '\x1FA90' && c <= '\x1FAAC' ||
-  c >= '\x1FAB0' && c <= '\x1FABA' ||
-  c >= '\x1FAC0' && c <= '\x1FAC5' ||
-  c >= '\x1FAD0' && c <= '\x1FAD9' ||
-  c >= '\x1FAE0' && c <= '\x1FAE7' ||
-  c >= '\x1FAF0' && c <= '\x1FAF6' ||
+  c >= '\x1FA70' && c <= '\x1FA7C' ||
+  c >= '\x1FA80' && c <= '\x1FA88' ||
+  c >= '\x1FA90' && c <= '\x1FABD' ||
+  c >= '\x1FABF' && c <= '\x1FAC5' ||
+  c >= '\x1FACE' && c <= '\x1FADB' ||
+  c >= '\x1FAE0' && c <= '\x1FAE8' ||
+  c >= '\x1FAF0' && c <= '\x1FAF8' ||
   c >= '\x1FB00' && c <= '\x1FB92' ||
   c >= '\x1FB94' && c <= '\x1FBCA'
 
@@ -6749,10 +6787,10 @@ unicodeSo = MkCharSet
   , MkCharRange '\x1F260' '\x1F265'
   , MkCharRange '\x1F300' '\x1F3FA'
   , MkCharRange '\x1F400' '\x1F6D7'
-  , MkCharRange '\x1F6DD' '\x1F6EC'
+  , MkCharRange '\x1F6DC' '\x1F6EC'
   , MkCharRange '\x1F6F0' '\x1F6FC'
-  , MkCharRange '\x1F700' '\x1F773'
-  , MkCharRange '\x1F780' '\x1F7D8'
+  , MkCharRange '\x1F700' '\x1F776'
+  , MkCharRange '\x1F77B' '\x1F7D9'
   , MkCharRange '\x1F7E0' '\x1F7EB'
   , MkCharRange '\x1F7F0' '\x1F7F0'
   , MkCharRange '\x1F800' '\x1F80B'
@@ -6763,15 +6801,13 @@ unicodeSo = MkCharSet
   , MkCharRange '\x1F8B0' '\x1F8B1'
   , MkCharRange '\x1F900' '\x1FA53'
   , MkCharRange '\x1FA60' '\x1FA6D'
-  , MkCharRange '\x1FA70' '\x1FA74'
-  , MkCharRange '\x1FA78' '\x1FA7C'
-  , MkCharRange '\x1FA80' '\x1FA86'
-  , MkCharRange '\x1FA90' '\x1FAAC'
-  , MkCharRange '\x1FAB0' '\x1FABA'
-  , MkCharRange '\x1FAC0' '\x1FAC5'
-  , MkCharRange '\x1FAD0' '\x1FAD9'
-  , MkCharRange '\x1FAE0' '\x1FAE7'
-  , MkCharRange '\x1FAF0' '\x1FAF6'
+  , MkCharRange '\x1FA70' '\x1FA7C'
+  , MkCharRange '\x1FA80' '\x1FA88'
+  , MkCharRange '\x1FA90' '\x1FABD'
+  , MkCharRange '\x1FABF' '\x1FAC5'
+  , MkCharRange '\x1FACE' '\x1FADB'
+  , MkCharRange '\x1FAE0' '\x1FAE8'
+  , MkCharRange '\x1FAF0' '\x1FAF8'
   , MkCharRange '\x1FB00' '\x1FB92'
   , MkCharRange '\x1FB94' '\x1FBCA'
   ]
@@ -7146,6 +7182,7 @@ isUnicodeLo c =
   c == '\x111DC' ||
   c >= '\x11200' && c <= '\x11211' ||
   c >= '\x11213' && c <= '\x1122B' ||
+  c >= '\x1123F' && c <= '\x11240' ||
   c >= '\x11280' && c <= '\x11286' ||
   c == '\x11288' ||
   c >= '\x1128A' && c <= '\x1128D' ||
@@ -7207,11 +7244,15 @@ isUnicodeLo c =
   c >= '\x11D6A' && c <= '\x11D89' ||
   c == '\x11D98' ||
   c >= '\x11EE0' && c <= '\x11EF2' ||
+  c == '\x11F02' ||
+  c >= '\x11F04' && c <= '\x11F10' ||
+  c >= '\x11F12' && c <= '\x11F33' ||
   c == '\x11FB0' ||
   c >= '\x12000' && c <= '\x12399' ||
   c >= '\x12480' && c <= '\x12543' ||
   c >= '\x12F90' && c <= '\x12FF0' ||
-  c >= '\x13000' && c <= '\x1342E' ||
+  c >= '\x13000' && c <= '\x1342F' ||
+  c >= '\x13441' && c <= '\x13446' ||
   c >= '\x14400' && c <= '\x14646' ||
   c >= '\x16800' && c <= '\x16A38' ||
   c >= '\x16A40' && c <= '\x16A5E' ||
@@ -7228,7 +7269,9 @@ isUnicodeLo c =
   c == '\x18D00' ||
   c == '\x18D08' ||
   c >= '\x1B000' && c <= '\x1B122' ||
+  c == '\x1B132' ||
   c >= '\x1B150' && c <= '\x1B152' ||
+  c == '\x1B155' ||
   c >= '\x1B164' && c <= '\x1B167' ||
   c >= '\x1B170' && c <= '\x1B2FB' ||
   c >= '\x1BC00' && c <= '\x1BC6A' ||
@@ -7240,6 +7283,7 @@ isUnicodeLo c =
   c == '\x1E14E' ||
   c >= '\x1E290' && c <= '\x1E2AD' ||
   c >= '\x1E2C0' && c <= '\x1E2EB' ||
+  c >= '\x1E4D0' && c <= '\x1E4EA' ||
   c >= '\x1E7E0' && c <= '\x1E7E6' ||
   c >= '\x1E7E8' && c <= '\x1E7EB' ||
   c >= '\x1E7ED' && c <= '\x1E7EE' ||
@@ -7281,7 +7325,7 @@ isUnicodeLo c =
   c == '\x20000' ||
   c == '\x2A6DF' ||
   c == '\x2A700' ||
-  c == '\x2B738' ||
+  c == '\x2B739' ||
   c == '\x2B740' ||
   c == '\x2B81D' ||
   c == '\x2B820' ||
@@ -7290,7 +7334,9 @@ isUnicodeLo c =
   c == '\x2EBE0' ||
   c >= '\x2F800' && c <= '\x2FA1D' ||
   c == '\x30000' ||
-  c == '\x3134A'
+  c == '\x3134A' ||
+  c == '\x31350' ||
+  c == '\x323AF'
 
 export
 unicodeLo : CharSet
@@ -7662,6 +7708,7 @@ unicodeLo = MkCharSet
   , MkCharRange '\x111DC' '\x111DC'
   , MkCharRange '\x11200' '\x11211'
   , MkCharRange '\x11213' '\x1122B'
+  , MkCharRange '\x1123F' '\x11240'
   , MkCharRange '\x11280' '\x11286'
   , MkCharRange '\x11288' '\x11288'
   , MkCharRange '\x1128A' '\x1128D'
@@ -7723,11 +7770,15 @@ unicodeLo = MkCharSet
   , MkCharRange '\x11D6A' '\x11D89'
   , MkCharRange '\x11D98' '\x11D98'
   , MkCharRange '\x11EE0' '\x11EF2'
+  , MkCharRange '\x11F02' '\x11F02'
+  , MkCharRange '\x11F04' '\x11F10'
+  , MkCharRange '\x11F12' '\x11F33'
   , MkCharRange '\x11FB0' '\x11FB0'
   , MkCharRange '\x12000' '\x12399'
   , MkCharRange '\x12480' '\x12543'
   , MkCharRange '\x12F90' '\x12FF0'
-  , MkCharRange '\x13000' '\x1342E'
+  , MkCharRange '\x13000' '\x1342F'
+  , MkCharRange '\x13441' '\x13446'
   , MkCharRange '\x14400' '\x14646'
   , MkCharRange '\x16800' '\x16A38'
   , MkCharRange '\x16A40' '\x16A5E'
@@ -7744,7 +7795,9 @@ unicodeLo = MkCharSet
   , MkCharRange '\x18D00' '\x18D00'
   , MkCharRange '\x18D08' '\x18D08'
   , MkCharRange '\x1B000' '\x1B122'
+  , MkCharRange '\x1B132' '\x1B132'
   , MkCharRange '\x1B150' '\x1B152'
+  , MkCharRange '\x1B155' '\x1B155'
   , MkCharRange '\x1B164' '\x1B167'
   , MkCharRange '\x1B170' '\x1B2FB'
   , MkCharRange '\x1BC00' '\x1BC6A'
@@ -7756,6 +7809,7 @@ unicodeLo = MkCharSet
   , MkCharRange '\x1E14E' '\x1E14E'
   , MkCharRange '\x1E290' '\x1E2AD'
   , MkCharRange '\x1E2C0' '\x1E2EB'
+  , MkCharRange '\x1E4D0' '\x1E4EA'
   , MkCharRange '\x1E7E0' '\x1E7E6'
   , MkCharRange '\x1E7E8' '\x1E7EB'
   , MkCharRange '\x1E7ED' '\x1E7EE'
@@ -7797,7 +7851,7 @@ unicodeLo = MkCharSet
   , MkCharRange '\x20000' '\x20000'
   , MkCharRange '\x2A6DF' '\x2A6DF'
   , MkCharRange '\x2A700' '\x2A700'
-  , MkCharRange '\x2B738' '\x2B738'
+  , MkCharRange '\x2B739' '\x2B739'
   , MkCharRange '\x2B740' '\x2B740'
   , MkCharRange '\x2B81D' '\x2B81D'
   , MkCharRange '\x2B820' '\x2B820'
@@ -7807,6 +7861,8 @@ unicodeLo = MkCharSet
   , MkCharRange '\x2F800' '\x2FA1D'
   , MkCharRange '\x30000' '\x30000'
   , MkCharRange '\x3134A' '\x3134A'
+  , MkCharRange '\x31350' '\x31350'
+  , MkCharRange '\x323AF' '\x323AF'
   ]
 
 export
@@ -7859,7 +7915,7 @@ isUnicodeCf c =
   c >= '\xFFF9' && c <= '\xFFFB' ||
   c == '\x110BD' ||
   c == '\x110CD' ||
-  c >= '\x13430' && c <= '\x13438' ||
+  c >= '\x13430' && c <= '\x1343F' ||
   c >= '\x1BCA0' && c <= '\x1BCA3' ||
   c >= '\x1D173' && c <= '\x1D17A' ||
   c == '\xE0001' ||
@@ -7884,7 +7940,7 @@ unicodeCf = MkCharSet
   , MkCharRange '\xFFF9' '\xFFFB'
   , MkCharRange '\x110BD' '\x110BD'
   , MkCharRange '\x110CD' '\x110CD'
-  , MkCharRange '\x13430' '\x13438'
+  , MkCharRange '\x13430' '\x1343F'
   , MkCharRange '\x1BCA0' '\x1BCA3'
   , MkCharRange '\x1D173' '\x1D17A'
   , MkCharRange '\xE0001' '\xE0001'
@@ -7956,6 +8012,7 @@ isUnicodeNo c =
   c >= '\x11FC0' && c <= '\x11FD4' ||
   c >= '\x16B5B' && c <= '\x16B61' ||
   c >= '\x16E80' && c <= '\x16E96' ||
+  c >= '\x1D2C0' && c <= '\x1D2D3' ||
   c >= '\x1D2E0' && c <= '\x1D2F3' ||
   c >= '\x1D360' && c <= '\x1D378' ||
   c >= '\x1E8C7' && c <= '\x1E8CF' ||
@@ -8031,6 +8088,7 @@ unicodeNo = MkCharSet
   , MkCharRange '\x11FC0' '\x11FD4'
   , MkCharRange '\x16B5B' '\x16B61'
   , MkCharRange '\x16E80' '\x16E96'
+  , MkCharRange '\x1D2C0' '\x1D2D3'
   , MkCharRange '\x1D2E0' '\x1D2F3'
   , MkCharRange '\x1D360' '\x1D378'
   , MkCharRange '\x1E8C7' '\x1E8CF'
@@ -8170,7 +8228,9 @@ isUnicodeLm c =
   c >= '\x1AFF0' && c <= '\x1AFF3' ||
   c >= '\x1AFF5' && c <= '\x1AFFB' ||
   c >= '\x1AFFD' && c <= '\x1AFFE' ||
+  c >= '\x1E030' && c <= '\x1E06D' ||
   c >= '\x1E137' && c <= '\x1E13D' ||
+  c == '\x1E4EB' ||
   c == '\x1E94B'
 
 export
@@ -8243,7 +8303,9 @@ unicodeLm = MkCharSet
   , MkCharRange '\x1AFF0' '\x1AFF3'
   , MkCharRange '\x1AFF5' '\x1AFFB'
   , MkCharRange '\x1AFFD' '\x1AFFE'
+  , MkCharRange '\x1E030' '\x1E06D'
   , MkCharRange '\x1E137' '\x1E13D'
+  , MkCharRange '\x1E4EB' '\x1E4EB'
   , MkCharRange '\x1E94B' '\x1E94B'
   ]
 
@@ -8342,7 +8404,7 @@ isUnicodeMn c =
   c >= '\x0E47' && c <= '\x0E4E' ||
   c == '\x0EB1' ||
   c >= '\x0EB4' && c <= '\x0EBC' ||
-  c >= '\x0EC8' && c <= '\x0ECD' ||
+  c >= '\x0EC8' && c <= '\x0ECE' ||
   c >= '\x0F18' && c <= '\x0F19' ||
   c == '\x0F35' ||
   c == '\x0F37' ||
@@ -8473,6 +8535,7 @@ isUnicodeMn c =
   c >= '\x10AE5' && c <= '\x10AE6' ||
   c >= '\x10D24' && c <= '\x10D27' ||
   c >= '\x10EAB' && c <= '\x10EAC' ||
+  c >= '\x10EFD' && c <= '\x10EFF' ||
   c >= '\x10F46' && c <= '\x10F50' ||
   c >= '\x10F82' && c <= '\x10F85' ||
   c == '\x11001' ||
@@ -8495,6 +8558,7 @@ isUnicodeMn c =
   c == '\x11234' ||
   c >= '\x11236' && c <= '\x11237' ||
   c == '\x1123E' ||
+  c == '\x11241' ||
   c == '\x112DF' ||
   c >= '\x112E3' && c <= '\x112EA' ||
   c >= '\x11300' && c <= '\x11301' ||
@@ -8556,6 +8620,12 @@ isUnicodeMn c =
   c == '\x11D95' ||
   c == '\x11D97' ||
   c >= '\x11EF3' && c <= '\x11EF4' ||
+  c >= '\x11F00' && c <= '\x11F01' ||
+  c >= '\x11F36' && c <= '\x11F3A' ||
+  c == '\x11F40' ||
+  c == '\x11F42' ||
+  c == '\x13440' ||
+  c >= '\x13447' && c <= '\x13455' ||
   c >= '\x16AF0' && c <= '\x16AF4' ||
   c >= '\x16B30' && c <= '\x16B36' ||
   c == '\x16F4F' ||
@@ -8580,9 +8650,11 @@ isUnicodeMn c =
   c >= '\x1E01B' && c <= '\x1E021' ||
   c >= '\x1E023' && c <= '\x1E024' ||
   c >= '\x1E026' && c <= '\x1E02A' ||
+  c == '\x1E08F' ||
   c >= '\x1E130' && c <= '\x1E136' ||
   c == '\x1E2AE' ||
   c >= '\x1E2EC' && c <= '\x1E2EF' ||
+  c >= '\x1E4EC' && c <= '\x1E4EF' ||
   c >= '\x1E8D0' && c <= '\x1E8D6' ||
   c >= '\x1E944' && c <= '\x1E94A' ||
   c >= '\xE0100' && c <= '\xE01EF'
@@ -8682,7 +8754,7 @@ unicodeMn = MkCharSet
   , MkCharRange '\x0E47' '\x0E4E'
   , MkCharRange '\x0EB1' '\x0EB1'
   , MkCharRange '\x0EB4' '\x0EBC'
-  , MkCharRange '\x0EC8' '\x0ECD'
+  , MkCharRange '\x0EC8' '\x0ECE'
   , MkCharRange '\x0F18' '\x0F19'
   , MkCharRange '\x0F35' '\x0F35'
   , MkCharRange '\x0F37' '\x0F37'
@@ -8813,6 +8885,7 @@ unicodeMn = MkCharSet
   , MkCharRange '\x10AE5' '\x10AE6'
   , MkCharRange '\x10D24' '\x10D27'
   , MkCharRange '\x10EAB' '\x10EAC'
+  , MkCharRange '\x10EFD' '\x10EFF'
   , MkCharRange '\x10F46' '\x10F50'
   , MkCharRange '\x10F82' '\x10F85'
   , MkCharRange '\x11001' '\x11001'
@@ -8835,6 +8908,7 @@ unicodeMn = MkCharSet
   , MkCharRange '\x11234' '\x11234'
   , MkCharRange '\x11236' '\x11237'
   , MkCharRange '\x1123E' '\x1123E'
+  , MkCharRange '\x11241' '\x11241'
   , MkCharRange '\x112DF' '\x112DF'
   , MkCharRange '\x112E3' '\x112EA'
   , MkCharRange '\x11300' '\x11301'
@@ -8896,6 +8970,12 @@ unicodeMn = MkCharSet
   , MkCharRange '\x11D95' '\x11D95'
   , MkCharRange '\x11D97' '\x11D97'
   , MkCharRange '\x11EF3' '\x11EF4'
+  , MkCharRange '\x11F00' '\x11F01'
+  , MkCharRange '\x11F36' '\x11F3A'
+  , MkCharRange '\x11F40' '\x11F40'
+  , MkCharRange '\x11F42' '\x11F42'
+  , MkCharRange '\x13440' '\x13440'
+  , MkCharRange '\x13447' '\x13455'
   , MkCharRange '\x16AF0' '\x16AF4'
   , MkCharRange '\x16B30' '\x16B36'
   , MkCharRange '\x16F4F' '\x16F4F'
@@ -8920,9 +9000,11 @@ unicodeMn = MkCharSet
   , MkCharRange '\x1E01B' '\x1E021'
   , MkCharRange '\x1E023' '\x1E024'
   , MkCharRange '\x1E026' '\x1E02A'
+  , MkCharRange '\x1E08F' '\x1E08F'
   , MkCharRange '\x1E130' '\x1E136'
   , MkCharRange '\x1E2AE' '\x1E2AE'
   , MkCharRange '\x1E2EC' '\x1E2EF'
+  , MkCharRange '\x1E4EC' '\x1E4EF'
   , MkCharRange '\x1E8D0' '\x1E8D6'
   , MkCharRange '\x1E944' '\x1E94A'
   , MkCharRange '\xE0100' '\xE01EF'
@@ -9011,6 +9093,7 @@ isUnicodeM c =
   c >= '\x0CCA' && c <= '\x0CCD' ||
   c >= '\x0CD5' && c <= '\x0CD6' ||
   c >= '\x0CE2' && c <= '\x0CE3' ||
+  c == '\x0CF3' ||
   c >= '\x0D00' && c <= '\x0D03' ||
   c >= '\x0D3B' && c <= '\x0D3C' ||
   c >= '\x0D3E' && c <= '\x0D44' ||
@@ -9029,7 +9112,7 @@ isUnicodeM c =
   c >= '\x0E47' && c <= '\x0E4E' ||
   c == '\x0EB1' ||
   c >= '\x0EB4' && c <= '\x0EBC' ||
-  c >= '\x0EC8' && c <= '\x0ECD' ||
+  c >= '\x0EC8' && c <= '\x0ECE' ||
   c >= '\x0F18' && c <= '\x0F19' ||
   c == '\x0F35' ||
   c == '\x0F37' ||
@@ -9131,6 +9214,7 @@ isUnicodeM c =
   c >= '\x10AE5' && c <= '\x10AE6' ||
   c >= '\x10D24' && c <= '\x10D27' ||
   c >= '\x10EAB' && c <= '\x10EAC' ||
+  c >= '\x10EFD' && c <= '\x10EFF' ||
   c >= '\x10F46' && c <= '\x10F50' ||
   c >= '\x10F82' && c <= '\x10F85' ||
   c >= '\x11000' && c <= '\x11002' ||
@@ -9150,6 +9234,7 @@ isUnicodeM c =
   c >= '\x111CE' && c <= '\x111CF' ||
   c >= '\x1122C' && c <= '\x11237' ||
   c == '\x1123E' ||
+  c == '\x11241' ||
   c >= '\x112DF' && c <= '\x112EA' ||
   c >= '\x11300' && c <= '\x11303' ||
   c >= '\x1133B' && c <= '\x1133C' ||
@@ -9197,6 +9282,12 @@ isUnicodeM c =
   c >= '\x11D90' && c <= '\x11D91' ||
   c >= '\x11D93' && c <= '\x11D97' ||
   c >= '\x11EF3' && c <= '\x11EF6' ||
+  c >= '\x11F00' && c <= '\x11F01' ||
+  c == '\x11F03' ||
+  c >= '\x11F34' && c <= '\x11F3A' ||
+  c >= '\x11F3E' && c <= '\x11F42' ||
+  c == '\x13440' ||
+  c >= '\x13447' && c <= '\x13455' ||
   c >= '\x16AF0' && c <= '\x16AF4' ||
   c >= '\x16B30' && c <= '\x16B36' ||
   c == '\x16F4F' ||
@@ -9224,9 +9315,11 @@ isUnicodeM c =
   c >= '\x1E01B' && c <= '\x1E021' ||
   c >= '\x1E023' && c <= '\x1E024' ||
   c >= '\x1E026' && c <= '\x1E02A' ||
+  c == '\x1E08F' ||
   c >= '\x1E130' && c <= '\x1E136' ||
   c == '\x1E2AE' ||
   c >= '\x1E2EC' && c <= '\x1E2EF' ||
+  c >= '\x1E4EC' && c <= '\x1E4EF' ||
   c >= '\x1E8D0' && c <= '\x1E8D6' ||
   c >= '\x1E944' && c <= '\x1E94A' ||
   c >= '\xE0100' && c <= '\xE01EF'
@@ -9314,6 +9407,7 @@ unicodeM = MkCharSet
   , MkCharRange '\x0CCA' '\x0CCD'
   , MkCharRange '\x0CD5' '\x0CD6'
   , MkCharRange '\x0CE2' '\x0CE3'
+  , MkCharRange '\x0CF3' '\x0CF3'
   , MkCharRange '\x0D00' '\x0D03'
   , MkCharRange '\x0D3B' '\x0D3C'
   , MkCharRange '\x0D3E' '\x0D44'
@@ -9332,7 +9426,7 @@ unicodeM = MkCharSet
   , MkCharRange '\x0E47' '\x0E4E'
   , MkCharRange '\x0EB1' '\x0EB1'
   , MkCharRange '\x0EB4' '\x0EBC'
-  , MkCharRange '\x0EC8' '\x0ECD'
+  , MkCharRange '\x0EC8' '\x0ECE'
   , MkCharRange '\x0F18' '\x0F19'
   , MkCharRange '\x0F35' '\x0F35'
   , MkCharRange '\x0F37' '\x0F37'
@@ -9434,6 +9528,7 @@ unicodeM = MkCharSet
   , MkCharRange '\x10AE5' '\x10AE6'
   , MkCharRange '\x10D24' '\x10D27'
   , MkCharRange '\x10EAB' '\x10EAC'
+  , MkCharRange '\x10EFD' '\x10EFF'
   , MkCharRange '\x10F46' '\x10F50'
   , MkCharRange '\x10F82' '\x10F85'
   , MkCharRange '\x11000' '\x11002'
@@ -9453,6 +9548,7 @@ unicodeM = MkCharSet
   , MkCharRange '\x111CE' '\x111CF'
   , MkCharRange '\x1122C' '\x11237'
   , MkCharRange '\x1123E' '\x1123E'
+  , MkCharRange '\x11241' '\x11241'
   , MkCharRange '\x112DF' '\x112EA'
   , MkCharRange '\x11300' '\x11303'
   , MkCharRange '\x1133B' '\x1133C'
@@ -9500,6 +9596,12 @@ unicodeM = MkCharSet
   , MkCharRange '\x11D90' '\x11D91'
   , MkCharRange '\x11D93' '\x11D97'
   , MkCharRange '\x11EF3' '\x11EF6'
+  , MkCharRange '\x11F00' '\x11F01'
+  , MkCharRange '\x11F03' '\x11F03'
+  , MkCharRange '\x11F34' '\x11F3A'
+  , MkCharRange '\x11F3E' '\x11F42'
+  , MkCharRange '\x13440' '\x13440'
+  , MkCharRange '\x13447' '\x13455'
   , MkCharRange '\x16AF0' '\x16AF4'
   , MkCharRange '\x16B30' '\x16B36'
   , MkCharRange '\x16F4F' '\x16F4F'
@@ -9527,9 +9629,11 @@ unicodeM = MkCharSet
   , MkCharRange '\x1E01B' '\x1E021'
   , MkCharRange '\x1E023' '\x1E024'
   , MkCharRange '\x1E026' '\x1E02A'
+  , MkCharRange '\x1E08F' '\x1E08F'
   , MkCharRange '\x1E130' '\x1E136'
   , MkCharRange '\x1E2AE' '\x1E2AE'
   , MkCharRange '\x1E2EC' '\x1E2EF'
+  , MkCharRange '\x1E4EC' '\x1E4EF'
   , MkCharRange '\x1E8D0' '\x1E8D6'
   , MkCharRange '\x1E944' '\x1E94A'
   , MkCharRange '\xE0100' '\xE01EF'
@@ -9592,6 +9696,7 @@ isUnicodeMc c =
   c >= '\x0CC7' && c <= '\x0CC8' ||
   c >= '\x0CCA' && c <= '\x0CCB' ||
   c >= '\x0CD5' && c <= '\x0CD6' ||
+  c == '\x0CF3' ||
   c >= '\x0D02' && c <= '\x0D03' ||
   c >= '\x0D3E' && c <= '\x0D40' ||
   c >= '\x0D46' && c <= '\x0D48' ||
@@ -9730,6 +9835,10 @@ isUnicodeMc c =
   c >= '\x11D93' && c <= '\x11D94' ||
   c == '\x11D96' ||
   c >= '\x11EF5' && c <= '\x11EF6' ||
+  c == '\x11F03' ||
+  c >= '\x11F34' && c <= '\x11F35' ||
+  c >= '\x11F3E' && c <= '\x11F3F' ||
+  c == '\x11F41' ||
   c >= '\x16F51' && c <= '\x16F87' ||
   c >= '\x16FF0' && c <= '\x16FF1' ||
   c >= '\x1D165' && c <= '\x1D166' ||
@@ -9773,6 +9882,7 @@ unicodeMc = MkCharSet
   , MkCharRange '\x0CC7' '\x0CC8'
   , MkCharRange '\x0CCA' '\x0CCB'
   , MkCharRange '\x0CD5' '\x0CD6'
+  , MkCharRange '\x0CF3' '\x0CF3'
   , MkCharRange '\x0D02' '\x0D03'
   , MkCharRange '\x0D3E' '\x0D40'
   , MkCharRange '\x0D46' '\x0D48'
@@ -9911,6 +10021,10 @@ unicodeMc = MkCharSet
   , MkCharRange '\x11D93' '\x11D94'
   , MkCharRange '\x11D96' '\x11D96'
   , MkCharRange '\x11EF5' '\x11EF6'
+  , MkCharRange '\x11F03' '\x11F03'
+  , MkCharRange '\x11F34' '\x11F35'
+  , MkCharRange '\x11F3E' '\x11F3F'
+  , MkCharRange '\x11F41' '\x11F41'
   , MkCharRange '\x16F51' '\x16F87'
   , MkCharRange '\x16FF0' '\x16FF1'
   , MkCharRange '\x1D165' '\x1D166'

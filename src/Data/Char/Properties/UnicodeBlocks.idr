@@ -5,7 +5,7 @@ import Data.Set.CharSet
 
 export
 unicodeVersion : String
-unicodeVersion = "14.0.0"
+unicodeVersion = "15.0.0"
 
 export
 isBasicLatin : Char -> Bool
@@ -1680,6 +1680,14 @@ yezidi : CharSet
 yezidi = MkCharSet [MkCharRange '\x10E80' '\x10EBF']
 
 export
+isArabicExtendedC : Char -> Bool
+isArabicExtendedC c = c >= '\x10EC0' && c <= '\x10EFF'
+
+export
+arabicExtendedC : CharSet
+arabicExtendedC = MkCharSet [MkCharRange '\x10EC0' '\x10EFF']
+
+export
 isOldSogdian : Char -> Bool
 isOldSogdian c = c >= '\x10F00' && c <= '\x10F2F'
 
@@ -1928,6 +1936,14 @@ pauCinHau : CharSet
 pauCinHau = MkCharSet [MkCharRange '\x11AC0' '\x11AFF']
 
 export
+isDevanagariExtendedA : Char -> Bool
+isDevanagariExtendedA c = c >= '\x11B00' && c <= '\x11B5F'
+
+export
+devanagariExtendedA : CharSet
+devanagariExtendedA = MkCharSet [MkCharRange '\x11B00' '\x11B5F']
+
+export
 isBhaiksuki : Char -> Bool
 isBhaiksuki c = c >= '\x11C00' && c <= '\x11C6F'
 
@@ -1966,6 +1982,14 @@ isMakasar c = c >= '\x11EE0' && c <= '\x11EFF'
 export
 makasar : CharSet
 makasar = MkCharSet [MkCharRange '\x11EE0' '\x11EFF']
+
+export
+isKawi : Char -> Bool
+isKawi c = c >= '\x11F00' && c <= '\x11F5F'
+
+export
+kawi : CharSet
+kawi = MkCharSet [MkCharRange '\x11F00' '\x11F5F']
 
 export
 isLisuSupplement : Char -> Bool
@@ -2025,11 +2049,11 @@ egyptianHieroglyphs = MkCharSet [MkCharRange '\x13000' '\x1342F']
 
 export
 isEgyptianHieroglyphFormatControls : Char -> Bool
-isEgyptianHieroglyphFormatControls c = c >= '\x13430' && c <= '\x1343F'
+isEgyptianHieroglyphFormatControls c = c >= '\x13430' && c <= '\x1345F'
 
 export
 egyptianHieroglyphFormatControls : CharSet
-egyptianHieroglyphFormatControls = MkCharSet [MkCharRange '\x13430' '\x1343F']
+egyptianHieroglyphFormatControls = MkCharSet [MkCharRange '\x13430' '\x1345F']
 
 export
 isAnatolianHieroglyphs : Char -> Bool
@@ -2224,6 +2248,14 @@ ancientGreekMusicalNotation : CharSet
 ancientGreekMusicalNotation = MkCharSet [MkCharRange '\x1D200' '\x1D24F']
 
 export
+isKaktovikNumerals : Char -> Bool
+isKaktovikNumerals c = c >= '\x1D2C0' && c <= '\x1D2DF'
+
+export
+kaktovikNumerals : CharSet
+kaktovikNumerals = MkCharSet [MkCharRange '\x1D2C0' '\x1D2DF']
+
+export
 isMayanNumerals : Char -> Bool
 isMayanNumerals c = c >= '\x1D2E0' && c <= '\x1D2FF'
 
@@ -2280,6 +2312,14 @@ glagoliticSupplement : CharSet
 glagoliticSupplement = MkCharSet [MkCharRange '\x1E000' '\x1E02F']
 
 export
+isCyrillicExtendedD : Char -> Bool
+isCyrillicExtendedD c = c >= '\x1E030' && c <= '\x1E08F'
+
+export
+cyrillicExtendedD : CharSet
+cyrillicExtendedD = MkCharSet [MkCharRange '\x1E030' '\x1E08F']
+
+export
 isNyiakengPuachueHmong : Char -> Bool
 isNyiakengPuachueHmong c = c >= '\x1E100' && c <= '\x1E14F'
 
@@ -2302,6 +2342,14 @@ isWancho c = c >= '\x1E2C0' && c <= '\x1E2FF'
 export
 wancho : CharSet
 wancho = MkCharSet [MkCharRange '\x1E2C0' '\x1E2FF']
+
+export
+isNagMundari : Char -> Bool
+isNagMundari c = c >= '\x1E4D0' && c <= '\x1E4FF'
+
+export
+nagMundari : CharSet
+nagMundari = MkCharSet [MkCharRange '\x1E4D0' '\x1E4FF']
 
 export
 isEthiopicExtendedB : Char -> Bool
@@ -2534,6 +2582,14 @@ isCJKUnifiedIdeographsExtensionG c = c >= '\x30000' && c <= '\x3134F'
 export
 cJKUnifiedIdeographsExtensionG : CharSet
 cJKUnifiedIdeographsExtensionG = MkCharSet [MkCharRange '\x30000' '\x3134F']
+
+export
+isCJKUnifiedIdeographsExtensionH : Char -> Bool
+isCJKUnifiedIdeographsExtensionH c = c >= '\x31350' && c <= '\x323AF'
+
+export
+cJKUnifiedIdeographsExtensionH : CharSet
+cJKUnifiedIdeographsExtensionH = MkCharSet [MkCharRange '\x31350' '\x323AF']
 
 export
 isTags : Char -> Bool
